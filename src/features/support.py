@@ -40,14 +40,10 @@ def event_home_kong(bot, update, user_data):
     userid = update.message.from_user.id
     requests_helper.send_promo_metrics(userid, '《五月之約》尋回專屬HOME KONG場的感動')
     update.message.reply_text(conversations.EVENT_HOME_KONG)
-    for pic_name in ['event_02_01.jpg', 'event_02_02.jpg']:
-        try:
-            event = ContentConfig.cache_path + pic_name
-            with open(event, 'rb') as event_poster:
-                update.message.reply_photo(event_poster)
-            event_poster.close()
-        except:
-            traceback.print_exc()
+    for pic in ['AgADBQAD7KcxGzak-VS3Tc8RdlkBJKcmzDIABMP5dnxxPEBQeekBAAEC',
+                'AgADBQAD7acxGzak-VTLffELMMm8IjURzDIABNLPMEaNIBw8zeUBAAEC',
+                'AgADBQAD66cxGzak-VTDj1_dsgEYa88WzDIABFHRx6fhGHY3POQBAAEC']:
+        update.message.reply_photo(pic)
     update.message.reply_text(conversations.EVENT_HOME_KONG_CREDIT)
     update.message.reply_text(conversations.EVENT_BACK, reply_markup=keyboards.support_event_keyboard_markup)
     return stage.SUPPORT_EVENT_START

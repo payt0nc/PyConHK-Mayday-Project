@@ -67,16 +67,13 @@ def done(bot, update, user_data):
     userid = update.message.from_user.id
     if 'choice' in user_data:
         del user_data['choice']
-    redis.clean_all_redis(userid, None)
+#    redis.clean_all_redis(userid, None)
     try:
-        goodbye_path = ContentConfig.cache_path + 'Asin.png'
-        with open(goodbye_path, 'rb') as goodbye_pic:
-            update.message.reply_photo(goodbye_pic, caption=conversations.DONE)
-        goodbye_pic.close()
+        update.message.reply_photo(photo='AgADBQAD6acxGzak-VRabpeO1a6wDIInzDIABBfRuVDtnXnQK-UBAAEC', caption=conversations.DONE)
     except:
         update.message.reply_text(conversations.DONE)
         traceback.print_exc()
-    user_data.clear()
+    # user_data.clear()
     return ConversationHandler.END
 
 
