@@ -1,0 +1,40 @@
+[loggers]
+keys = root
+
+[logger_root]
+level=DEBUG
+handlers=console, debug_file, info_file
+
+[handlers]
+keys = console, debug_file, info_file
+
+[handler_console]
+class=StreamHandler
+level=DEBUG
+formatter=DebugUsed
+args=[]
+
+[handler_debug_file]
+class=handlers.TimedRotatingFileHandler
+level=DEBUG
+when=midnight
+formatter=DebugUsed
+encoding=utf-8
+args=['/projects/HK-Mayday-Ticket-Bot/log/TicketBot.debug.log']
+
+[handler_info_file]
+class=handlers.TimedRotatingFileHandler
+level=DEBUG
+when=midnight
+formatter=DebugUsed
+encoding=utf-8
+args=['/projects/HK-Mayday-Ticket-Bot/log/TicketBot.info.log']
+
+[formatters]
+keys=DebugUsed, InfoUsed
+
+[formatter_DebugUsed]
+format=%(asctime)s | %(levelname)s | File: %(filename)s | %(funcName)s() | Line: %(lineno)d |  %(message)s
+
+[formatter_InfoUsed]
+format=%(asctime)s | %(levelname)s | %(funcName)s() | %(message)s
