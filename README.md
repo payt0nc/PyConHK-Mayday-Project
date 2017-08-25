@@ -21,12 +21,11 @@ To break this:
 
 QA: F.WONG, B.CHAN
 
-====
 
 ## Feature
 
 1. Create Tickets
-2. Exchange/Sell Ticket <span style="color:red">**TOP UP PRICE IS RESTRICTED**</span>
+2. Exchange/Sell Ticket **(TOP UP PRICE IS RESTRICTED)**
 3. Manage My Tickets
 4. Fans Events
 
